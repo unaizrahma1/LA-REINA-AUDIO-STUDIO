@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB Atlas
-const MONGODB_URI = "mongodb+srv://u4632091:pMH0orlsXKlEcyVv@cluster0.boetf71.mongodb.net/event_management";
+const MONGODB_URI =  process.env.MONGODB_URI
 
 mongoose
   .connect(MONGODB_URI)
@@ -28,6 +28,9 @@ mongoose
   });
 
 // Routes
+app.get("/", (req, res) => {
+  res.send("API is running!");
+});
 app.use("/api/events", eventRoutes);
 app.use("/api/auth", authRoutes);
 
