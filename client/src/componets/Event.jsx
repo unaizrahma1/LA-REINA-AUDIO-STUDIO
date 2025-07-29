@@ -11,7 +11,7 @@ export default function Event() {
   useEffect(() => {
     // Fetch events from the server
     axios
-      .get("http://localhost:5000/api/events")
+      .get("https://la-reina-audio-studio-1.onrender.com/api/events")
       .then((response) => setEvents(response.data))
       .catch((error) => console.error(error));
   }, []);
@@ -23,7 +23,7 @@ export default function Event() {
   const handleEventDelete = (id) => {
     // Delete an event
     axios
-      .delete(`http://localhost:5000/api/events/${id}`)
+      .delete(`https://la-reina-audio-studio-1.onrender.com/api/events/${id}`)
       .then(() => setEvents(events.filter((event) => event._id !== id)))
       .catch((error) => console.error(error));
   };
@@ -40,7 +40,7 @@ export default function Event() {
 
     // Update the event in the database
     axios
-      .put(`http://localhost:5000/api/events/${eventId}`, updatedEvent)
+      .put(`https://la-reina-audio-studio-1.onrender.com/api/events/${eventId}`, updatedEvent)
       .then(() => {
         // If the update is successful, update the events in the state
         const updatedEvents = events.map((event) =>
@@ -59,7 +59,7 @@ export default function Event() {
   const onEventEdit = (eventId, updatedData) => {
     // Update the event in the database
     axios
-      .put(`http://localhost:5000/api/events/${eventId}`, updatedData)
+      .put(`https://la-reina-audio-studio-1.onrender.com/api/events/${eventId}`, updatedData)
       .then(() => {
         // If the update is successful, update the events in the state
         const updatedEvents = events.map((event) =>
